@@ -14,28 +14,3 @@ library(dslabs)
 ```{r read-data, echo=TRUE}
 data("brexit_polls")
 ```
-
-#### **Here we can see the first 5 rows of polling data:**
-- Variables include raw proportions of voters preferring "Remain", "Leave", and "Undecided" 
-
-- The spread is the *difference* in the raw proportion of voters choosing "Remain" and the raw proportion choosing "Leave".
-
-
-```{r table-view, echo=FALSE}
-table_view <- top_n(brexit_polls, 5)
-table_view
-```
-
-#### **Here is the plot I generated:**
-```{r plots, echo=FALSE}
-## Including Plots
-brexit_polls %>% ggplot(aes(enddate, spread, color = poll_type)) +
-  geom_smooth(method = "loess", span = 0.3) +
-  geom_point() +
-  geom_hline(yintercept = -0.038, color="blue") +
-  xlab("End Date") +
-  ylab("Spread") +
-  labs(title = "Spread Over 6 Months before Vote",
-       caption = "Blue line indicates the actual spread, both online and telephone polls largely missed predicting.") +
-  theme_grey() +
-  ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5, size=12, color = "purple"))
