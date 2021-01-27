@@ -1,7 +1,7 @@
 ---
 title: "Brexit Poll Data Analysis (plot included)"
 author: "Can Li"
-date: "`r format(Sys.Date())`"
+date: "01/27/2021"
 output: github_document
 ---
 
